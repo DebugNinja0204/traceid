@@ -1,0 +1,260 @@
+/* TRACEID — Dark Matte Cybersecurity Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Dark Matte Backgrounds */
+  --bg-base: #070B09;
+  --bg-subtle: #0A0F0C;
+  --bg-surface: #0D1510;
+  --bg-card: rgba(13, 21, 16, 0.92);
+  --bg-card-hover: rgba(18, 28, 22, 0.97);
+  --bg-glass: rgba(13, 21, 16, 0.75);
+  --bg-glass-elevated: rgba(16, 24, 20, 0.88);
+  --bg-input: rgba(13, 21, 16, 0.8);
+  --bg-overlay: rgba(0, 0, 0, 0.65);
+  --bg-sidebar: #060A08;
+
+  /* Borders */
+  --border-subtle: rgba(57, 255, 136, 0.06);
+  --border-medium: rgba(57, 255, 136, 0.1);
+  --border-strong: rgba(57, 255, 136, 0.2);
+  --border-glass: rgba(255, 255, 255, 0.05);
+  --border-highlight: rgba(57, 255, 136, 0.35);
+  --border-active: #39FF88;
+
+  /* Text */
+  --text-primary: #E8F5EC;
+  --text-secondary: #A8C4B0;
+  --text-muted: #6B8F76;
+  --text-subtle: #3D5E47;
+  --text-inverse: #070B09;
+
+  /* Neon Green Accent — used sparingly */
+  --accent: #39FF88;
+  --accent-soft: #8FFFC0;
+  --accent-muted: #1FA463;
+  --accent-dark: #0C3B25;
+  --accent-glow: rgba(57, 255, 136, 0.12);
+  --accent-glow-strong: rgba(57, 255, 136, 0.22);
+
+  /* Status Colors */
+  --status-strong: #39FF88;
+  --status-strong-bg: rgba(57, 255, 136, 0.08);
+  --status-strong-border: rgba(57, 255, 136, 0.2);
+  --status-possible: #38BDF8;
+  --status-possible-bg: rgba(56, 189, 248, 0.08);
+  --status-possible-border: rgba(56, 189, 248, 0.2);
+  --status-ambiguous: #FBBF24;
+  --status-ambiguous-bg: rgba(251, 191, 36, 0.08);
+  --status-ambiguous-border: rgba(251, 191, 36, 0.2);
+  --status-insufficient: #64748B;
+  --status-insufficient-bg: rgba(100, 116, 139, 0.07);
+  --status-insufficient-border: rgba(100, 116, 139, 0.18);
+  --status-different: #F87171;
+  --status-different-bg: rgba(248, 113, 113, 0.08);
+  --status-different-border: rgba(248, 113, 113, 0.2);
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Monaco, monospace;
+
+  /* Border Radius System */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows — very dark, almost invisible on dark bg */
+  --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.75), 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-green-glow: 0 0 20px rgba(57, 255, 136, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Minimal Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(57, 255, 136, 0.12);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 255, 136, 0.22);
+}
+
+/* Accessibility Focus */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Matte Dark Surface Card */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.18s ease;
+}
+
+.glass-panel:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-1px);
+}
+
+.glass-panel-elevated {
+  background: var(--bg-glass-elevated);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-elevated);
+  border-radius: var(--radius-xl);
+}
+
+/* Badge Base */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge-discriminating {
+  background: rgba(57, 255, 136, 0.08);
+  color: #39FF88;
+  border: 1px solid rgba(57, 255, 136, 0.2);
+}
+
+.badge-corroborating {
+  background: rgba(56, 189, 248, 0.08);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.badge-weak {
+  background: rgba(107, 143, 118, 0.08);
+  color: #6B8F76;
+  border: 1px solid rgba(107, 143, 118, 0.18);
+}
+
+.badge-verified {
+  background: rgba(57, 255, 136, 0.07);
+  color: #8FFFC0;
+  border: 1px solid rgba(57, 255, 136, 0.18);
+}
+
+.badge-origin {
+  background: rgba(57, 255, 136, 0.07);
+  color: #39FF88;
+  border: 1px solid rgba(57, 255, 136, 0.18);
+}
+
+.badge-mirror {
+  background: rgba(251, 191, 36, 0.07);
+  color: #FBBF24;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.badge-flagged {
+  background: rgba(248, 113, 113, 0.07);
+  color: #F87171;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+/* Skeleton Loader — dark mode shimmer */
+.skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    rgba(57, 255, 136, 0.03) 25%,
+    rgba(57, 255, 136, 0.07) 50%,
+    rgba(57, 255, 136, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s infinite ease-in-out;
+  border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Green pulse dot animation */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Sidebar nav item active state */
+.nav-item-active {
+  background: rgba(57, 255, 136, 0.07);
+  border-left: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+/* Floating modal sheet */
+.modal-sheet {
+  background: #0D1510;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-modal);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
